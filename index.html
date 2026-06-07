@@ -1301,82 +1301,6 @@
   </section>
 
 
-  <!-- IMPRESSUM & DATENSCHUTZ — Akkordeon -->
-  <div class="legal-accordion" id="impressum">
-    <div class="legal-accordion-inner">
-
-      <div class="accordion-item" id="acc-impressum">
-        <button class="accordion-trigger" onclick="toggleAccordion('acc-impressum')" aria-expanded="false">
-          Impressum
-          <span class="accordion-icon">+</span>
-        </button>
-        <div class="accordion-body legal-content">
-          <h3>Angaben gemäß § 5 TMG</h3>
-          <p>
-            Ulrike Frey<br>
-            [An der Felderhalde 9/4]<br>
-            [88316 Isny im Allgäu]<br>
-            Deutschland
-          </p>
-          <h3>Kontakt</h3>
-          <p>E-Mail: kontakt@fuehrungindir.de</p>
-          <h3>Hinweis zur Berufsbezeichnung</h3>
-          <p>
-            Diese Webseite dient der Vorstellung von Coaching- und Begleitungsangeboten
-            auf Basis von Human Design, Astrologie und THEKI. Es handelt sich nicht um
-            therapeutische oder medizinische Leistungen.
-          </p>
-          <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
-          <p>Ulrike Frey, An der Felderhalde 9/4, 88316 Isny im Allgäu</p>
-        </div>
-      </div>
-
-      <div class="accordion-item" id="acc-datenschutz">
-        <button class="accordion-trigger" onclick="toggleAccordion('acc-datenschutz')" aria-expanded="false">
-          Datenschutzerklärung
-          <span class="accordion-icon">+</span>
-        </button>
-        <div class="accordion-body legal-content" id="datenschutz">
-          <p style="font-size:13px; color:var(--text-light);">Stand: Juni 2026 · Verantwortliche: Ulrike Frey · kontakt@fuehrungindir.de</p>
-
-          <h3>1. Grundsätzliches</h3>
-          <p>Der Schutz Deiner personenbezogenen Daten ist mir ein wichtiges Anliegen. Ich verarbeite Deine Daten ausschließlich auf Grundlage der DSGVO und des BDSG.</p>
-
-          <h3>2. Verantwortliche Stelle (Art. 13 DSGVO)</h3>
-          <p>Ulrike Frey · An der Felderhalde 9/4 · 88316 Isny im Allgäu · E-Mail: kontakt@fuehrungindir.de</p>
-
-          <h3>3. Datenerhebung beim Webseitenbesuch</h3>
-          <p>Beim Aufruf der Webseite werden vom Hosting-Anbieter automatisch Server-Log-Files erfasst (IP-Adresse, Datum/Uhrzeit, Browser-Typ). Diese dienen ausschließlich der technischen Bereitstellung. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
-
-          <h3>4. Kontaktformular und E-Mail</h3>
-          <p>Daten aus dem Kontaktformular (Name, E-Mail, Nachricht) werden ausschließlich zur Bearbeitung Deiner Anfrage verwendet und nicht an Dritte weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. b und f DSGVO. Löschung nach abgeschlossener Bearbeitung, sofern keine Aufbewahrungspflichten bestehen.</p>
-
-          <h3>5. Terminbuchung (Calendly / IONOS)</h3>
-          <p>Für die Terminbuchung wird ein externer Dienst eingebunden. Die dabei übermittelten Daten (Name, E-Mail) werden ausschließlich zur Terminverwaltung genutzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO. [Anbieter nach Auswahl ergänzen.]</p>
-
-          <h3>6. Keine Cookies, kein Tracking</h3>
-          <p>Diese Webseite verwendet keine Tracking-Cookies und keine Analyse-Tools (z.B. Google Analytics). Keine Weitergabe an Werbenetze.</p>
-
-          <h3>7. Social-Media-Links</h3>
-          <p>Instagram, Facebook und LinkedIn sind als einfache Links eingebunden. Es werden keine Daten übertragen, solange Du nicht aktiv klickst. Beim Aufruf der Plattformen gelten deren eigene Datenschutzbestimmungen.</p>
-
-          <h3>8. Deine Rechte (Art. 15–22 DSGVO)</h3>
-          <ul>
-            <li>Auskunft (Art. 15) · Berichtigung (Art. 16) · Löschung (Art. 17)</li>
-            <li>Einschränkung (Art. 18) · Datenübertragbarkeit (Art. 20) · Widerspruch (Art. 21)</li>
-          </ul>
-          <p>Anfragen: kontakt@fuehrungindir.de</p>
-
-          <h3>9. Beschwerderecht</h3>
-          <p>Du kannst Dich an die zuständige Datenschutzaufsichtsbehörde Deines Bundeslandes wenden. Für Baden-Württemberg: <a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank" rel="noopener" style="color:var(--sage-dark);">www.baden-wuerttemberg.datenschutz.de</a></p>
-
-          <h3>10. Hosting</h3>
-          <p>Diese Website wird gehostet über GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). Datenschutzerklärung: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener" style="color:var(--sage-dark);">docs.github.com/privacy</a></p>
-        </div>
-      </div>
-
-    </div>
-  </div>
 
 
   <!-- FOOTER -->
@@ -1412,11 +1336,57 @@
       <div class="footer-bottom">
         <span>© 2026 Ulrike Frey · Führung in Dir</span>
         <div class="footer-legal">
-          <a href="#impressum">Impressum</a>
-          <a href="#datenschutz">Datenschutz</a>
+          <a href="#" onclick="toggleFooterLegal('legal-impressum'); return false;">Impressum</a>
+          <a href="#" onclick="toggleFooterLegal('legal-datenschutz'); return false;">Datenschutz</a>
         </div>
       </div>
     </div>
+
+    <!-- Impressum & Datenschutz — nur im Footer, aufklappbar -->
+    <div id="legal-impressum" style="display:none; margin-top:40px; padding-top:40px; border-top:1px solid rgba(247,241,232,0.15);">
+      <div style="max-width:780px; margin:0 auto;">
+        <h3 style="font-family:var(--font-serif); font-size:22px; color:var(--ivory); margin-bottom:20px;">Impressum</h3>
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:10px;">
+          Ulrike Frey<br>
+          An der Felderhalde 9/4<br>
+          88316 Isny im Allgäu<br>
+          Deutschland
+        </p>
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:10px;">
+          E-Mail: kontakt@fuehrungindir.de
+        </p>
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:10px;">
+          Diese Webseite dient der Vorstellung von Coaching- und Begleitungsangeboten auf Basis von Human Design, Astrologie und THEKI. Es handelt sich nicht um therapeutische oder medizinische Leistungen.
+        </p>
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8;">
+          Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: Ulrike Frey, An der Felderhalde 9/4, 88316 Isny im Allgäu
+        </p>
+      </div>
+    </div>
+
+    <div id="legal-datenschutz" style="display:none; margin-top:40px; padding-top:40px; border-top:1px solid rgba(247,241,232,0.15);">
+      <div style="max-width:780px; margin:0 auto;">
+        <h3 style="font-family:var(--font-serif); font-size:22px; color:var(--ivory); margin-bottom:20px;">Datenschutzerklärung</h3>
+        <p style="font-size:12px; color:rgba(247,241,232,0.5); margin-bottom:20px;">Stand: Juni 2026 · kontakt@fuehrungindir.de</p>
+
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:12px;"><strong style="color:var(--ivory);">1. Verantwortliche Stelle</strong><br>Ulrike Frey · An der Felderhalde 9/4 · 88316 Isny im Allgäu · kontakt@fuehrungindir.de</p>
+
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:12px;"><strong style="color:var(--ivory);">2. Datenerhebung beim Webseitenbesuch</strong><br>Beim Aufruf werden vom Hosting-Anbieter automatisch Server-Log-Files erfasst (IP-Adresse, Datum/Uhrzeit, Browser-Typ). Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:12px;"><strong style="color:var(--ivory);">3. Kontaktformular und E-Mail</strong><br>Daten aus dem Kontaktformular werden ausschließlich zur Bearbeitung Deiner Anfrage verwendet und nicht an Dritte weitergegeben. Rechtsgrundlage: Art. 6 Abs. 1 lit. b und f DSGVO.</p>
+
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:12px;"><strong style="color:var(--ivory);">4. Keine Cookies, kein Tracking</strong><br>Diese Webseite verwendet keine Tracking-Cookies und keine Analyse-Tools. Keine Weitergabe an Werbenetze.</p>
+
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:12px;"><strong style="color:var(--ivory);">5. Social-Media-Links</strong><br>Instagram, Facebook und LinkedIn sind als einfache Links eingebunden. Es werden keine Daten übertragen, solange Du nicht aktiv klickst.</p>
+
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:12px;"><strong style="color:var(--ivory);">6. Deine Rechte (Art. 15–22 DSGVO)</strong><br>Auskunft · Berichtigung · Löschung · Einschränkung · Datenübertragbarkeit · Widerspruch<br>Anfragen: kontakt@fuehrungindir.de</p>
+
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8; margin-bottom:12px;"><strong style="color:var(--ivory);">7. Beschwerderecht</strong><br>Zuständige Behörde für Baden-Württemberg: <a href="https://www.baden-wuerttemberg.datenschutz.de" target="_blank" rel="noopener" style="color:var(--gold-light);">www.baden-wuerttemberg.datenschutz.de</a></p>
+
+        <p style="font-size:14px; color:rgba(247,241,232,0.75); line-height:1.8;"><strong style="color:var(--ivory);">8. Hosting</strong><br>GitHub Pages (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA). <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener" style="color:var(--gold-light);">Datenschutzerklärung GitHub</a></p>
+      </div>
+    </div>
+
   </footer>
 
 
@@ -1456,14 +1426,13 @@
       });
     });
 
-    // Akkordeon für Impressum & Datenschutz
-    function toggleAccordion(id) {
-      const item = document.getElementById(id);
-      const isOpen = item.classList.contains('open');
-      // Alle schließen
-      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
-      // Angeklicktes öffnen (wenn es vorher zu war)
-      if (!isOpen) item.classList.add('open');
+    // Impressum & Datenschutz im Footer
+    function toggleFooterLegal(id) {
+      const el = document.getElementById(id);
+      const other = id === 'legal-impressum' ? 'legal-datenschutz' : 'legal-impressum';
+      document.getElementById(other).style.display = 'none';
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+      if (el.style.display === 'block') el.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 
