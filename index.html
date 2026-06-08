@@ -1263,7 +1263,7 @@
         </div>
       </div>
 
-      <form class="contact-form fade-in" action="https://formspree.io/f/mwvjoqbj" method="POST" aria-label="Kontaktformular">
+      <form class="contact-form fade-in" id="contact-form" action="https://formspree.io/f/mwvjoqbj" method="POST" aria-label="Kontaktformular">
         <div class="form-group">
           <label for="name">Dein Name</label>
           <input type="text" id="name" name="name" placeholder="Wie darf ich Dich nennen?" required autocomplete="name" />
@@ -1297,6 +1297,21 @@
           Deine Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.
         </p>
       </form>
+
+      <!-- Danke-Nachricht nach dem Absenden -->
+      <div id="form-success" style="display:none;" class="fade-in visible">
+        <div style="background:var(--white); border-left:3px solid var(--gold); padding:40px 36px; border-radius:0 4px 4px 0;">
+          <span class="label">Nachricht angekommen 🌿</span>
+          <h3 style="font-family:var(--font-serif); font-size:28px; color:var(--forest); margin:16px 0 16px;">Vielen Dank für Deine Nachricht!</h3>
+          <p style="font-size:16px; color:var(--text-mid); line-height:1.8; margin-bottom:12px;">
+            Ich habe Deine Nachricht erhalten und melde mich persönlich bei Dir — in der Regel innerhalb von 1–2 Werktagen.
+          </p>
+          <p style="font-size:16px; color:var(--text-mid); line-height:1.8;">
+            Ich freue mich darauf, Dich kennenzulernen. 🌿<br>
+            <em style="font-family:var(--font-serif);">Ulrike</em>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1425,6 +1440,29 @@
         if (window.innerWidth <= 700) navLinks.style.display = 'none';
       });
     });
+
+    // Kontaktformular mit Formspree
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = new FormData(contactForm);
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (response.ok) {
+            contactForm.style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+            document.getElementById('form-success').scrollIntoView({ behavior: 'smooth' });
+          }
+        } catch (err) {
+          alert('Es gab einen Fehler. Bitte schreibe direkt an kontakt@fuehrungindir.de');
+        }
+      });
+    }
 
     // Impressum & Datenschutz im Footer
     function toggleFooterLegal(id) {
