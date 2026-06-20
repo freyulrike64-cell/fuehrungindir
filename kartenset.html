@@ -277,18 +277,49 @@
     /* PRICE */
     #price { background: var(--ivory); text-align: center; }
 
-    .price-box {
-      max-width: 480px;
+    .price-tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: var(--max-w-wide);
       margin: 0 auto;
+      align-items: start;
+    }
+
+    .price-box {
       background: var(--white);
       border-radius: 4px;
-      padding: 52px 48px;
+      padding: 40px 32px;
       border-top: 3px solid var(--gold);
       box-shadow: 0 8px 40px rgba(61,92,68,0.08);
+      position: relative;
+    }
+
+    .price-box.tier-highlight {
+      border-top: 3px solid var(--forest);
+      box-shadow: 0 12px 48px rgba(61,92,68,0.16);
+      transform: translateY(-8px);
+    }
+
+    .tier-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--forest);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
     }
 
     .price-box .label { margin-bottom: 16px; display: block; }
-    .price-box h2 { font-size: clamp(24px, 3vw, 34px); color: var(--forest); margin-bottom: 8px; }
+    .price-box h2 { font-size: clamp(20px, 2.5vw, 28px); color: var(--forest); margin-bottom: 8px; }
 
     .price-amount {
       font-family: var(--font-serif);
@@ -382,6 +413,11 @@
     /* FADE */
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .price-tiers { grid-template-columns: 1fr; max-width: 480px; }
+      .price-box.tier-highlight { transform: none; }
+    }
 
     @media (max-width: 700px) {
       .portals-grid { grid-template-columns: 1fr 1fr; }
@@ -567,26 +603,66 @@
   <!-- PRICE -->
   <section id="price">
     <div class="section-inner fade-in">
-      <div class="price-box">
-        <span class="label">Dein Kartenset</span>
-        <h2>Führung in Dir<br>Das digitale Kartenset</h2>
-        <div class="price-amount">39 €</div>
-        <div class="price-detail">Einmalig · inkl. MwSt. · kein Abo · kein Verfallsdatum</div>
-        <div class="price-includes">
-          <div class="price-includes-item"><div class="pi-dot"></div><span>72 digitale Karten — interaktiv im Browser</span></div>
-          <div class="price-includes-item"><div class="pi-dot"></div><span>8 Portalkarten als Einstieg in jedes Thema</span></div>
-          <div class="price-includes-item"><div class="pi-dot"></div><span>64 Raumkarten mit vollständigem Reflexionsinhalt</span></div>
-          <div class="price-includes-item"><div class="pi-dot"></div><span>Sofortiger Zugang nach Kauf</span></div>
-          <div class="price-includes-item"><div class="pi-dot"></div><span>Zeitlos nutzbar — täglich, wöchentlich, wann immer Du einen Impuls brauchst</span></div>
+      <p style="text-align:center; color:var(--text-light); margin-bottom:36px; font-size:16px;">Wähle das Angebot, das zu Dir passt.</p>
+      <div class="price-tiers">
+
+        <!-- STUFE 1 -->
+        <div class="price-box tier-1">
+          <span class="label">Stufe 1</span>
+          <h2>Das digitale Kartenset</h2>
+          <div class="price-amount">39 €</div>
+          <div class="price-detail">Einmalig · inkl. MwSt. · kein Abo</div>
+          <div class="price-includes">
+            <div class="price-includes-item"><div class="pi-dot"></div><span>72 digitale Karten — interaktiv im Browser</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>8 Portalkarten als Einstieg in jedes Thema</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>64 Raumkarten mit vollständigem Reflexionsinhalt</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>Sofortiger Zugang nach Kauf</span></div>
+          </div>
+          <a href="https://www.checkout-ds24.com/product/704063" class="btn btn-gold" style="width:100%; text-align:center; display:block;">
+            Jetzt kaufen — 39 €
+          </a>
         </div>
-        <!-- DIGISTORE KAUFEN-BUTTON — Link nach Genehmigung eintragen -->
-        <a href="https://www.digistore24.com/product/704063" class="btn btn-gold" style="width:100%; text-align:center; display:block;">
-          Jetzt kaufen — 39 €
-        </a>
-        <p style="font-size:12px; color:var(--text-light); margin-top:14px; text-align:center;">
-          Sichere Zahlung über Digistore24 · PayPal, Kreditkarte, SEPA
-        </p>
+
+        <!-- STUFE 2 -->
+        <div class="price-box tier-highlight">
+          <div class="tier-badge">Beliebteste Wahl</div>
+          <span class="label">Stufe 2</span>
+          <h2>Kartenset + Reflexionsjournal</h2>
+          <div class="price-amount">57 €</div>
+          <div class="price-detail">Einmalig · inkl. MwSt. · kein Abo</div>
+          <div class="price-includes">
+            <div class="price-includes-item"><div class="pi-dot"></div><span>72 digitale Karten — interaktiv im Browser</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>8 Portalkarten als Einstieg in jedes Thema</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>64 Raumkarten mit vollständigem Reflexionsinhalt</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>Reflexionsjournal als PDF — zum Ausdrucken oder digital ausfüllen</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>Sofortiger Zugang nach Kauf</span></div>
+          </div>
+          <a href="https://www.checkout-ds24.com/product/704139" class="btn btn-gold" style="width:100%; text-align:center; display:block;">
+            Jetzt kaufen — 57 €
+          </a>
+        </div>
+
+        <!-- STUFE 3 -->
+        <div class="price-box tier-3">
+          <span class="label">Stufe 3</span>
+          <h2>Kartenset + Journal + Ein Raum nur für Dich</h2>
+          <div class="price-amount">111 €</div>
+          <div class="price-detail">Einmalig · inkl. MwSt. · kein Abo</div>
+          <div class="price-includes">
+            <div class="price-includes-item"><div class="pi-dot"></div><span>72 digitale Karten — interaktiv im Browser</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>Reflexionsjournal als PDF</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>Ein Raum nur für Dich — 60 Minuten persönliche Begleitung mit Ulrike</span></div>
+            <div class="price-includes-item"><div class="pi-dot"></div><span>Klarheit, Orientierung und ein Impuls für Deinen nächsten Schritt</span></div>
+          </div>
+          <a href="mailto:kontakt@fuehrungindir.de?subject=Ein%20Raum%20nur%20f%C3%BCr%20mich%20%E2%80%94%20Stufe%203" class="btn btn-gold" style="width:100%; text-align:center; display:block;">
+            Jetzt anfragen — 111 €
+          </a>
+        </div>
+
       </div>
+      <p style="font-size:12px; color:var(--text-light); margin-top:24px; text-align:center;">
+        Sichere Zahlung über Digistore24 · PayPal, Kreditkarte, SEPA
+      </p>
     </div>
   </section>
 
