@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Führung in Dir — Das digitale Kartenset | Ulrike Frey</title>
+  <meta name="description" content="72 digitale Reflexionskarten für Führungsfrauen im Gesundheitswesen. Täglich ein Impuls. Eine Frage. Eine Einladung zurück zu Dir selbst." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory:     #F7F1E8;
+      --beige:     #D8C3A5;
+      --sage:      #6D8C73;
+      --sage-dark: #3D5C44;
+      --sage-light:#A8C4AB;
+      --gold:      #C6A15B;
+      --gold-light:#D8BB84;
+      --forest:    #3D5C44;
+      --white:     #FFFFFF;
+      --text-dark: #2C2018;
+      --text-mid:  #5A4A3A;
+      --text-light:#8A7A6A;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'Inter', system-ui, sans-serif;
+      --max-w: 780px;
+      --max-w-wide: 1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--ivory);
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 400; line-height: 1.2; }
+
+    .label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(247, 241, 232, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(198, 161, 91, 0.2);
+      padding: 18px clamp(20px, 5vw, 60px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo { font-family: var(--font-serif); font-size: 20px; font-weight: 300; letter-spacing: 0.05em; color: var(--forest); }
+    .nav-logo span { color: var(--gold); }
+    .nav-back { font-size: 13px; color: var(--text-mid); letter-spacing: 0.05em; }
+    .nav-back:hover { color: var(--gold); }
+
+    /* HERO */
+    #hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px clamp(24px, 6vw, 80px) 80px;
+      background: var(--forest);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(198,161,91,0.08) 0%, transparent 70%);
+    }
+
+    .hero-inner { max-width: 700px; position: relative; z-index: 1; }
+
+    .hero-inner .label { color: var(--gold-light); margin-bottom: 20px; display: block; }
+
+    .hero-inner h1 {
+      font-size: clamp(36px, 6vw, 68px);
+      color: var(--ivory);
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .hero-inner h1 em { font-style: italic; color: var(--gold-light); }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: rgba(247, 241, 232, 0.75);
+      margin: 24px auto 48px;
+      max-width: 520px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .gold-line { width: 48px; height: 1px; background: var(--gold); margin: 0 auto 28px; }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 18px 44px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold { background: var(--gold); color: var(--white); }
+    .btn-gold:hover { background: var(--ivory); color: var(--forest); transform: translateY(-2px); }
+    .btn-outline-light { background: transparent; color: var(--ivory); border: 1px solid rgba(247,241,232,0.4); }
+    .btn-outline-light:hover { background: rgba(247,241,232,0.1); transform: translateY(-1px); }
+    .btn-primary { background: var(--forest); color: var(--ivory); }
+    .btn-primary:hover { background: var(--sage); transform: translateY(-1px); }
+
+    .price-note { margin-top: 14px; font-size: 13px; color: rgba(247,241,232,0.5); letter-spacing: 0.05em; }
+
+    /* SECTION BASE */
+    section { padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px); }
+    .section-inner { max-width: var(--max-w); margin: 0 auto; }
+    .section-inner-wide { max-width: var(--max-w-wide); margin: 0 auto; }
+
+    /* INTRO */
+    #intro { background: var(--ivory); text-align: center; }
+
+    #intro h2 {
+      font-size: clamp(26px, 4vw, 44px);
+      color: var(--forest);
+      margin: 16px auto 24px;
+      max-width: 600px;
+    }
+
+    #intro h2 em { font-style: italic; color: var(--sage-dark); }
+
+    #intro p {
+      font-family: var(--font-serif);
+      font-size: clamp(17px, 2.5vw, 21px);
+      color: var(--text-mid);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* PORTALS */
+    #portals { background: #EDE8DF; }
+
+    .portals-header { text-align: center; max-width: var(--max-w); margin: 0 auto 50px; }
+    .portals-header h2 { font-size: clamp(26px, 4vw, 42px); color: var(--forest); margin: 12px 0 16px; }
+    .portals-header p { color: var(--text-mid); font-size: 16px; }
+
+    .portals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+    }
+
+    .portal-card {
+      background: var(--white);
+      padding: 28px 24px;
+      border-radius: 4px;
+      border-top: 2px solid var(--gold);
+      text-align: center;
+    }
+
+    .portal-num {
+      font-family: var(--font-serif);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .portal-card h3 { font-size: 22px; color: var(--forest); margin-bottom: 8px; }
+    .portal-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+    /* CARD CONTENTS */
+    #contents { background: var(--ivory); }
+
+    .contents-header { text-align: center; max-width: var(--max-w); margin: 0 auto 50px; }
+    .contents-header h2 { font-size: clamp(26px, 4vw, 42px); color: var(--forest); margin: 12px 0 16px; }
+
+    .contents-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .content-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--white);
+      padding: 24px 22px;
+      border-radius: 4px;
+    }
+
+    .content-symbol {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .content-item h4 { font-size: 17px; color: var(--forest); margin-bottom: 6px; }
+    .content-item p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+    /* FOR WHOM */
+    #forwho {
+      background: var(--forest);
+      text-align: center;
+      padding: clamp(60px, 10vw, 100px) clamp(24px, 6vw, 80px);
+    }
+
+    #forwho .label { color: var(--gold-light); }
+    #forwho h2 { font-size: clamp(26px, 4vw, 44px); color: var(--ivory); margin: 16px auto 40px; max-width: 600px; font-weight: 300; }
+    #forwho h2 em { font-style: italic; color: var(--gold-light); }
+
+    .forwho-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 560px;
+      margin: 0 auto 48px;
+      text-align: left;
+    }
+
+    .forwho-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .forwho-dot {
+      width: 6px; height: 6px; min-width: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 9px;
+    }
+
+    .forwho-item p { font-family: var(--font-serif); font-size: 18px; color: rgba(247,241,232,0.85); line-height: 1.6; }
+
+    /* PRICE */
+    #price { background: var(--ivory); text-align: center; }
+
+    .price-box {
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 4px;
+      padding: 52px 48px;
+      border-top: 3px solid var(--gold);
+      box-shadow: 0 8px 40px rgba(61,92,68,0.08);
+    }
+
+    .price-box .label { margin-bottom: 16px; display: block; }
+    .price-box h2 { font-size: clamp(24px, 3vw, 34px); color: var(--forest); margin-bottom: 8px; }
+
+    .price-amount {
+      font-family: var(--font-serif);
+      font-size: 56px;
+      color: var(--gold);
+      line-height: 1;
+      margin: 24px 0 8px;
+    }
+
+    .price-detail { font-size: 13px; color: var(--text-light); margin-bottom: 32px; }
+
+    .price-includes {
+      text-align: left;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .price-includes-item {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-mid);
+      align-items: flex-start;
+    }
+
+    .pi-dot { width: 5px; height: 5px; min-width: 5px; background: var(--gold); border-radius: 50%; margin-top: 8px; }
+
+    /* ABOUT */
+    #about { background: #EDE8DF; }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .about-inner img { width: 100%; border-radius: 2px; filter: sepia(5%) brightness(0.97); }
+
+    .about-text .label { margin-bottom: 10px; display: block; }
+    .about-text h2 { font-size: clamp(24px, 3vw, 36px); color: var(--forest); margin-bottom: 18px; }
+    .about-text p { font-size: 15px; color: var(--text-mid); line-height: 1.85; margin-bottom: 14px; }
+
+    @media (max-width: 600px) {
+      .about-inner { grid-template-columns: 1fr; }
+      .about-inner img { max-width: 160px; }
+    }
+
+    /* QUOTE */
+    .quote-block {
+      background: var(--forest);
+      text-align: center;
+      padding: clamp(48px, 8vw, 80px) clamp(24px, 6vw, 80px);
+    }
+
+    .quote-block p {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(20px, 3vw, 30px);
+      color: var(--ivory);
+      max-width: 620px;
+      margin: 0 auto 20px;
+      line-height: 1.55;
+    }
+
+    .quote-block span { font-size: 13px; letter-spacing: 0.1em; color: var(--gold-light); }
+
+    /* FOOTER */
+    footer {
+      background: var(--forest);
+      color: rgba(247, 241, 232, 0.7);
+      padding: 48px clamp(20px, 5vw, 60px);
+      text-align: center;
+    }
+
+    footer .nav-logo { color: var(--ivory); font-size: 22px; margin-bottom: 12px; display: inline-block; }
+    footer .nav-logo span { color: var(--gold); }
+    footer p { font-size: 13px; line-height: 1.7; margin-bottom: 6px; }
+    footer a { color: rgba(247,241,232,0.5); }
+    footer a:hover { color: var(--ivory); }
+    .footer-legal { margin-top: 20px; display: flex; gap: 24px; justify-content: center; font-size: 13px; }
+
+    /* Legal */
+    #legal-impressum { display: none; margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(247,241,232,0.15); text-align: left; max-width: 680px; margin-left: auto; margin-right: auto; }
+    #legal-impressum p { font-size: 13px; color: rgba(247,241,232,0.7); line-height: 1.8; margin-bottom: 8px; }
+
+    /* FADE */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 700px) {
+      .portals-grid { grid-template-columns: 1fr 1fr; }
+      .price-box { padding: 40px 28px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Führung <span>in Dir</span></a>
+    <a href="index.html" class="nav-back">← Zurück zur Website</a>
+  </nav>
+
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <span class="label">Das digitale Kartenset</span>
+      <div class="gold-line"></div>
+      <h1>Führung <em>in Dir</em></h1>
+      <p class="hero-tagline">
+        72 Karten für Deine innere Führung.<br>
+        Täglich ein Impuls. Eine Frage.<br>
+        Eine Einladung zurück zu Dir selbst.
+      </p>
+      <a href="#price" class="btn btn-gold">Jetzt entdecken — 39 €</a>
+      <p class="price-note">Einmalig · Kein Abo · Sofortiger Zugang</p>
+    </div>
+  </section>
+
+
+  <!-- INTRO -->
+  <section id="intro">
+    <div class="section-inner fade-in">
+      <span class="label">Warum dieses Kartenset?</span>
+      <h2>Du trägst Verantwortung.<br><em>Wer trägt eigentlich Dich?</em></h2>
+      <p>
+        Du hältst zusammen — nach oben und nach unten.<br>
+        Für Dein Team, für Deine Patientinnen und Patienten, für den Betrieb.<br><br>
+        Und manchmal fragst Du Dich: Wer führt eigentlich mich?<br><br>
+        Dieses Kartenset setzt genau dort an — bei Dir.
+        Bei Deiner Energie. Bei dem, was in Dir wohnt und darauf wartet, gesehen zu werden.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- PORTALS -->
+  <section id="portals">
+    <div class="portals-header fade-in">
+      <span class="label">Die Struktur</span>
+      <h2>8 Portale · 64 Räume</h2>
+      <p>Jedes Portal öffnet einen Bereich Deiner inneren Führung. Jeder Raum lädt Dich tiefer ein.</p>
+    </div>
+    <div class="portals-grid">
+      <div class="portal-card fade-in">
+        <div class="portal-num">Portal I</div>
+        <h3>Klarheit</h3>
+        <p>Was in mir wirklich weiß</p>
+      </div>
+      <div class="portal-card fade-in">
+        <div class="portal-num">Portal II</div>
+        <h3>Vertrauen</h3>
+        <p>Die Kraft, die trägt</p>
+      </div>
+      <div class="portal-card fade-in">
+        <div class="portal-num">Portal III</div>
+        <h3>Muster</h3>
+        <p>Was sich immer wiederholt</p>
+      </div>
+      <div class="portal-card fade-in">
+        <div class="portal-num">Portal IV</div>
+        <h3>Entscheidung</h3>
+        <p>Aus der Mitte wählen</p>
+      </div>
+      <div class="portal-card fade-in">
+        <div class="portal-num">Portal V</div>
+        <h3>Wandel</h3>
+        <p>Was sich verändern darf</p>
+      </div>
+      <div class="portal-card fade-in">
+        <div class="portal-num">Portal VI</div>
+        <h3>Führung</h3>
+        <p>Verantwortung aus Energie</p>
+      </div>
+      <div class="portal-card fade-in">
+        <div class="portal-num">Portal VII</div>
+        <h3>Verbindung</h3>
+        <p>Mit mir und mit anderen</p>
+      </div>
+      <div class="portal-card fade-in">
+        <div class="portal-num">Portal VIII</div>
+        <h3>Potenzial</h3>
+        <p>Was in mir noch wartet</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTENTS -->
+  <section id="contents">
+    <div class="contents-header fade-in">
+      <span class="label">Jede Karte enthält</span>
+      <h2>Fünf Ebenen der Begegnung mit Dir selbst</h2>
+    </div>
+    <div class="contents-list">
+      <div class="content-item fade-in">
+        <div class="content-symbol">✦</div>
+        <div>
+          <h4>Ein Keyword</h4>
+          <p>Das Thema des Raumes — klar, einladend, unmittelbar.</p>
+        </div>
+      </div>
+      <div class="content-item fade-in">
+        <div class="content-symbol">✦</div>
+        <div>
+          <h4>Eine Reflexionsfrage</h4>
+          <p>Die Dich in die Tiefe führt — ohne Druck, mit Offenheit.</p>
+        </div>
+      </div>
+      <div class="content-item fade-in">
+        <div class="content-symbol">✦</div>
+        <div>
+          <h4>Ein Impuls</h4>
+          <p>Eine kurze Erkenntnis, die wirkt und nachhallt.</p>
+        </div>
+      </div>
+      <div class="content-item fade-in">
+        <div class="content-symbol">✦</div>
+        <div>
+          <h4>Eine Affirmation</h4>
+          <p>Ein Satz in Ich-Form, der stärkt und verankert.</p>
+        </div>
+      </div>
+      <div class="content-item fade-in">
+        <div class="content-symbol">✦</div>
+        <div>
+          <h4>Eine Einladung</h4>
+          <p>Ein konkreter Schritt für diesen Tag — machbar und bedeutsam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOR WHOM -->
+  <section id="forwho">
+    <div class="fade-in">
+      <span class="label">Für wen?</span>
+      <h2>Dieses Kartenset ist für Dich,<br><em>wenn Du spürst, dass mehr in Dir steckt.</em></h2>
+      <div class="forwho-list">
+        <div class="forwho-item">
+          <div class="forwho-dot"></div>
+          <p>Du trägst Verantwortung im Gesundheitswesen — und spürst, dass echte Führung von innen beginnt</p>
+        </div>
+        <div class="forwho-item">
+          <div class="forwho-dot"></div>
+          <p>Du spürst, dass echte Führung von innen beginnt</p>
+        </div>
+        <div class="forwho-item">
+          <div class="forwho-dot"></div>
+          <p>Du möchtest täglich einen bewussten Moment für Dich — auch mitten im vollen Alltag</p>
+        </div>
+        <div class="forwho-item">
+          <div class="forwho-dot"></div>
+          <p>Du sehnst Dich nach mehr Klarheit, Ruhe und Verbindung mit Dir selbst</p>
+        </div>
+      </div>
+      <a href="#price" class="btn btn-gold">Zum Kartenset — 39 €</a>
+    </div>
+  </section>
+
+
+  <!-- QUOTE -->
+  <div class="quote-block fade-in">
+    <p>„Führung beginnt in Dir.<br>Alles andere folgt."</p>
+    <span>— Ulrike Frey</span>
+  </div>
+
+
+  <!-- PRICE -->
+  <section id="price">
+    <div class="section-inner fade-in">
+      <div class="price-box">
+        <span class="label">Dein Kartenset</span>
+        <h2>Führung in Dir<br>Das digitale Kartenset</h2>
+        <div class="price-amount">39 €</div>
+        <div class="price-detail">Einmalig · inkl. MwSt. · kein Abo · kein Verfallsdatum</div>
+        <div class="price-includes">
+          <div class="price-includes-item"><div class="pi-dot"></div><span>72 digitale Karten — interaktiv im Browser</span></div>
+          <div class="price-includes-item"><div class="pi-dot"></div><span>8 Portalkarten als Einstieg in jedes Thema</span></div>
+          <div class="price-includes-item"><div class="pi-dot"></div><span>64 Raumkarten mit vollständigem Reflexionsinhalt</span></div>
+          <div class="price-includes-item"><div class="pi-dot"></div><span>Sofortiger Zugang nach Kauf</span></div>
+          <div class="price-includes-item"><div class="pi-dot"></div><span>Zeitlos nutzbar — täglich, wöchentlich, wann immer Du einen Impuls brauchst</span></div>
+        </div>
+        <!-- DIGISTORE KAUFEN-BUTTON — Link nach Genehmigung eintragen -->
+        <a href="https://www.digistore24.com/product/704063" class="btn btn-gold" style="width:100%; text-align:center; display:block;">
+          Jetzt kaufen — 39 €
+        </a>
+        <p style="font-size:12px; color:var(--text-light); margin-top:14px; text-align:center;">
+          Sichere Zahlung über Digistore24 · PayPal, Kreditkarte, SEPA
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner fade-in">
+      <img src="foto-ulrike.jpg" alt="Ulrike Frey" loading="lazy" />
+      <div class="about-text">
+        <span class="label">Über die Autorin</span>
+        <h2>Ulrike Frey</h2>
+        <p>
+          Ich begleite Führungsfrauen im Gesundheitswesen dabei,
+          aus ihrer eigenen Energie zu führen — klar, bewusst und menschlich.
+        </p>
+        <p>
+          Mit über 40 Jahren Erfahrung im deutschen Gesundheitswesen,
+          als Codes of Life® Begleiterin und THEKI®-Bewusstseinstrainerin
+          verbinde ich Führungserfahrung mit tiefem Verständnis für innere Prozesse.
+        </p>
+        <p style="font-style:italic; color:var(--text-light); font-size:14px;">
+          www.fuehrung-in-dir.de
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="index.html" class="nav-logo">Führung <span>in Dir</span></a>
+    <p>Ulrike Frey · www.fuehrung-in-dir.de</p>
+    <p>kontakt@fuehrungindir.de</p>
+    <div class="footer-legal">
+      <a href="index.html">Zur Website</a>
+      <a href="#" onclick="document.getElementById('legal-impressum').style.display=document.getElementById('legal-impressum').style.display==='none'?'block':'none'; return false;">Impressum</a>
+    </div>
+
+    <div id="legal-impressum">
+      <p><strong style="color:rgba(247,241,232,0.9);">Impressum</strong></p>
+      <p>
+        Ulrike Frey<br>
+        An der Felderhalde 9/4<br>
+        88316 Isny im Allgäu<br>
+        Deutschland
+      </p>
+      <p>E-Mail: kontakt@fuehrungindir.de</p>
+      <p>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV: Ulrike Frey, An der Felderhalde 9/4, 88316 Isny im Allgäu</p>
+      <p>Die Abbuchung erfolgt durch Digistore24.com</p>
+    </div>
+  </footer>
+
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
