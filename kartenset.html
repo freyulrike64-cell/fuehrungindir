@@ -361,7 +361,7 @@
       margin: 0 auto;
     }
 
-    .about-inner img { width: 100%; border-radius: 2px; filter: sepia(5%) brightness(0.97); }
+    .about-inner img { width: 100%; border-radius: 2px; filter: grayscale(1); }
 
     .about-text .label { margin-bottom: 10px; display: block; }
     .about-text h2 { font-size: clamp(24px, 3vw, 36px); color: var(--forest); margin-bottom: 18px; }
@@ -419,7 +419,18 @@
       .price-box.tier-highlight { transform: none; }
     }
 
+    /* EINBLICK / KARTENVORSCHAU */
+    #preview { background: var(--white); text-align: center; }
+    #preview h2 { font-size: clamp(28px, 4vw, 40px); margin: 14px 0 12px; color: var(--sage-dark); }
+    #preview .preview-intro { color: var(--text-mid); max-width: 560px; margin: 0 auto 44px; }
+    .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 900px; margin: 0 auto; }
+    .preview-grid figure { margin: 0; }
+    .preview-grid img { width: 100%; height: auto; border-radius: 14px; }
+    .preview-grid figcaption { font-size: 13px; color: var(--text-light); margin-top: 12px; letter-spacing: 0.04em; }
+    .preview-note { font-family: var(--font-serif); font-style: italic; font-size: 20px; color: var(--text-mid); margin-top: 40px; }
+
     @media (max-width: 700px) {
+      .preview-grid { grid-template-columns: 1fr; max-width: 300px; }
       .portals-grid { grid-template-columns: 1fr 1fr; }
       .price-box { padding: 40px 28px; }
     }
@@ -565,6 +576,34 @@
   </section>
 
 
+  <!-- EINBLICK / KARTENVORSCHAU -->
+  <section id="preview">
+    <div class="section-inner-wide fade-in">
+      <span class="label">Ein Blick in das Kartenset</span>
+      <h2>So begegnet Dir <em>eine Karte</em></h2>
+      <p class="preview-intro">
+        Vorne das Thema des Raumes. Tippst Du die Karte an, dreht sie sich um —
+        und Du findest Deine Frage, einen Impuls, eine Affirmation und eine Einladung für den Tag.
+      </p>
+      <div class="preview-grid">
+        <figure>
+          <img src="karte-spiegel-vorne.jpg" alt="Vorderseite der Karte Raum 20 · Spiegel aus dem Kartenset Führung in Dir" loading="lazy" width="720" height="1117" />
+          <figcaption>Vorderseite · Raum 20 · Spiegel</figcaption>
+        </figure>
+        <figure>
+          <img src="karte-projektion-hinten.jpg" alt="Rückseite der Karte Raum 21 · Projektion mit Reflexionsfrage, Impuls, Affirmation und Einladung" loading="lazy" width="720" height="1117" />
+          <figcaption>Rückseite · Raum 21 · Projektion</figcaption>
+        </figure>
+        <figure>
+          <img src="karte-sicherheit-hinten.jpg" alt="Rückseite der Karte Raum 13 · Sicherheit mit Reflexionsfrage, Impuls, Affirmation und Einladung" loading="lazy" width="720" height="1117" />
+          <figcaption>Rückseite · Raum 13 · Sicherheit</figcaption>
+        </figure>
+      </div>
+      <p class="preview-note">Drei von 72 Karten — jede ein Raum, der auf Dich wartet.</p>
+    </div>
+  </section>
+
+
   <!-- FOR WHOM -->
   <section id="forwho">
     <div class="fade-in">
@@ -574,10 +613,6 @@
         <div class="forwho-item">
           <div class="forwho-dot"></div>
           <p>Du trägst Verantwortung im Gesundheitswesen — und spürst, dass echte Führung von innen beginnt</p>
-        </div>
-        <div class="forwho-item">
-          <div class="forwho-dot"></div>
-          <p>Du spürst, dass echte Führung von innen beginnt</p>
         </div>
         <div class="forwho-item">
           <div class="forwho-dot"></div>
@@ -684,7 +719,7 @@
           verbinde ich Führungserfahrung mit tiefem Verständnis für innere Prozesse.
         </p>
         <p style="font-style:italic; color:var(--text-light); font-size:14px;">
-          www.fuehrung-in-dir.de
+          www.fuehrungindir.de
         </p>
       </div>
     </div>
@@ -694,7 +729,7 @@
   <!-- FOOTER -->
   <footer>
     <a href="index.html" class="nav-logo">Führung <span>in Dir</span></a>
-    <p>Ulrike Frey · www.fuehrung-in-dir.de</p>
+    <p>Ulrike Frey · www.fuehrungindir.de</p>
     <p>kontakt@fuehrungindir.de</p>
     <div class="footer-legal">
       <a href="index.html">Zur Website</a>
